@@ -23,6 +23,13 @@ int main()
     std::tuple<int, std::string, char , std::unordered_map<std::string , int>> a = std::make_tuple(27,"amit",'A',m);
 
     /// seeing the concept of tie
+    /// Tuples can store references but not other containers because
+    /// Link to understand why containers cannot store references :
+    /// https://stackoverflow.com/questions/4010937/why-does-storing-references-not-pointers-in-containers-in-c-not-work
+    // That's not a good answer. Containers in C++ can contain anything, not just objects.
+    // For example you can have set<int>, set<int*> etc. A reference is a pointer on a physical level,
+    // however because the compiler needs to instantiate functions that take references to your element type,
+    // and because C++ can't handle double references, set<int&> is impossible
     std::tuple<int,std::string,char> tup = std::make_tuple(2,"abc",'K');
     int ti;
     std::string ts;
